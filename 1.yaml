@@ -9,3 +9,12 @@ Resources:
         Engine: mysql 
         MasterUsername: wordpress
         MasterUserPassword: w0rdpr355
+    myEC2Instance:
+      Type: AWS::EC2::Instance
+      Properties:
+        ImageId: ami-c481fad3
+        InstanceType: t2.micro
+    s3Bucket:
+      Type: AWS::S3::Bucket
+      Properties: 
+        BucketName: wp-xxxxxx 
