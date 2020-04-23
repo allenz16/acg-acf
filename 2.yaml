@@ -57,6 +57,7 @@ Resources:
       Properties:
         ImageId: !FindInMap [AMI, !Ref "AWS::Region", !Ref ImageType]
         InstanceType: !FindInMap [InstanceType, !Ref EnvironmentSize, EC2]
+        KeyName: key
         UserData:
           Fn::Base64:
             !Sub |
