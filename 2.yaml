@@ -14,6 +14,16 @@ Parameters:
       - AMALINUX
       - Ubuntu
     Description: Select Instance Type
+  DatabaseUser:
+    Type: String
+    Default: wordpress
+  DatabaseName:
+    Type: String
+    Default: wordpress
+  DatabasePassword:
+    Type: String
+    Default: w0rdpr355
+    NoEcho: true
   
 Mappings:
   InstanceType:
@@ -61,7 +71,7 @@ Resources:
               rm latest.tar.gz
               cp wp-config-sample.php wp-config.php
               sed -i 's/database_name_here/${DatabaseName}/g' wp-config.php
-              sed -i 's/localhost/${DB.Endpoint.Address}/g' wp-config.php
+              sed -i 's/localhost/${rdsDBInstance.Endpoint.Address}/g' wp-config.php
               sed -i 's/username_here/${DatabaseUser}/g' wp-config.php
               sed -i 's/password_here/${DatabasePassword}/g' wp-config.php
     s3Bucket:
