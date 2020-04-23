@@ -48,10 +48,10 @@ Resources:
         AllocatedStorage: 5
         StorageType: gp2
         DBInstanceClass: !FindInMap [InstanceType, !Ref EnvironmentSize, DB]
-        DBName: wordpress
+        DBName: !Ref DatabaseName
         Engine: mysql 
-        MasterUsername: wordpress
-        MasterUserPassword: w0rdpr355
+        MasterUsername: !Ref DatabaseUser
+        MasterUserPassword: !Ref DatabasePassword
     myEC2Instance:
       Type: AWS::EC2::Instance
       Properties:
